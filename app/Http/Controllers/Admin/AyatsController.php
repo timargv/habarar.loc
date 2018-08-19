@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Ayat;
+use App\Sura;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,7 +27,8 @@ class AyatsController extends Controller
      */
     public function create()
     {
-        //
+        $suras = Sura::pluck('name', 'id')->all();
+        return view('admin.kuran.ayats.create', compact('suras'));
     }
 
     /**
