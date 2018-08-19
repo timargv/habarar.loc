@@ -18,4 +18,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 
       Route::get('/', 'DashboardController@index');
 
+      Route::resource('kuran', 'SurasController');
+      Route::resource('ayats', 'AyatsController');
 });

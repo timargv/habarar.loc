@@ -72,8 +72,6 @@
                 <div class="top-right links" style="z-index: 1;">
                     <a href="{{ url('/') }}">Главная</a>
                     <a href="{{ url('/admin') }}">Админ</a>
-                    <a href="{{ url('/manufacturers') }}">Поставщики</a>
-                    <a href="{{ url('/contacts') }}">Контакты</a>
                 </div>
 
                 @yield('content')

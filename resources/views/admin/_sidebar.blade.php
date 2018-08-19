@@ -5,9 +5,18 @@
             <i class="fa fa-dashboard"></i> <span>Админ-панель</span>
         </a>
     </li>
-    <li><a href="#"><i class="fa fa-tags"></i> <span>Актеры</span></a></li>
-    <li><a href="#"><i class="fa fa-user"></i> <span>Фильмы</span></a></li>
-    <li><a href="#"><i class="fa fa-user"></i> <span>Сериалы</span></a></li>
-    <li><a href="#"><i class="fa fa-user"></i> <span>Жанры</span></a></li>
+    <li class="treeview menu-open">
+        <a href="#">
+            <i class="fa fa-tags"></i>
+            <span>Коран</span>
+            <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{{ route('kuran.index') }}"><i class="fa fa-tags"></i> <span>Суры</span></a></li>
+            <li><a href="{{ route('ayats.index') }}"><i class="fa fa-tags"></i> <span>Аяты</span></a></li>
+        </ul>
+    </li>
 
 </ul>
