@@ -1,13 +1,12 @@
 @extends('admin.layout')
 
 @section('content')
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                {{ $title }}
+                {{ $title }} - {{ $sura->name }}
                 <small>приятные слова..</small>
             </h1>
         </section>
@@ -19,32 +18,37 @@
                 <div class="box-header">
 
                     <div class="">
-                        <a class="btn btn-primary btn-sm" href="{{ route('ayats.create') }}"><i class="fa fa-plus"></i> &nbsp; Добавить</a>
+                        <a class="btn btn-primary btn-sm" href="{{ route('kuran.create') }}"><i class="fa fa-plus"></i> &nbsp; Добавить Суру</a>
+                        <a class="btn btn-warning btn-sm" href="{{ route('ayats.create') }}"><i class="fa fa-plus"></i> &nbsp; Добавить Аят</a>
+                        <a class="btn btn-danger btn-sm pull-right" href="{{ route('kuran.index') }}"><i class="fa fa-arrow-left"></i> Суры</a>
                     </div>
 
                     <p></p>
                 </div>
+                @if(count($ayats))
+
                 <div class=" box-body table-responsive no-padding">
+
                     <table class="table table-hover">
                         <thead>
 
                         </thead>
                         <tbody>
                         <tr>
-                            <th style="width: 30px;padding-left: 15px;">ID</th>
-                            <th width="46%">Название</th>
+                            <th style="width: 65px;padding-left: 15px;">ID</th>
+                            <th width="45%">Название</th>
                             <th width="45%">Название на Араб.</th>
-                            {{--<th style="width:  150px">Сура</th>--}}
+                            {{--<th>Номер Суры</th>--}}
 
-                            <th width="50px"></th>
+                            <th></th>
                         </tr>
                         @foreach($ayats as $ayat)
-                            <tr class="active">
+                            <tr>
                                 <td style="padding-left: 15px;">{{ $ayat->id }}</td>
-                                <td colspan="2">
-                                    <a href="{{ route('kuran.show', $ayat->sura->slug ) }}">{{ $ayat->getSuraName() }}</a>
-                                </td>
-                                <td width="60px">
+                                <td>{{ $ayat->text }}</td>
+                                <td class="text-right">{{ $ayat->text_original }}</td>
+{{--                                <td>{{ $ayat->getSuraName() }}</td>--}}
+                                <td width="80px">
                                     <div class="form-inline">
                                         <a class="form-inline" style="position: relative;top: 4px; " href="{{ route('ayats.edit', $ayat->id) }}"><i class="fa fa-pencil-square-o"></i></a>
 
@@ -53,25 +57,23 @@
                                         {{ Form::close() }}
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-left: 15px;"></td>
-                                <td>{{ $ayat->text }}</td>
-                                <td class="text-right">{{ $ayat->text_original }}</td>
-                                {{--                                <td>{{ $ayat->getSuraName() }}</td>--}}
-
-                                <th width="50px"></th>
 
                             </tr>
-
                         @endforeach
+
 
                         </tbody>
                     </table>
+
                 </div>
                 <div class="box-footer clearfix">
                     {{$ayats->links()}}
                 </div>
+                @else
+                    <h1 class="text-center">Пусто</h1>
+                    <br>
+                    <br>
+                @endif
             </div>
         </section>
         <!-- /.content -->

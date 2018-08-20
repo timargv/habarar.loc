@@ -18,7 +18,7 @@
                 <div class="box-header">
 
                 </div>
-                {{ Form::open(['route' => 'ayats.store']) }}
+                {{ Form::open(['route' => ['ayats.update', $ayat->id], 'method' => 'put']) }}
 
                 <div class=" box-body ">
 
@@ -27,53 +27,44 @@
                         <div class="">
 
                             @include('admin.errors')
-                            <div class="clearfix row">
-                                <div class="col-xs-6">
-                                    <label>Название</label>
-                                    <div class="input-group ">
-                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <textarea name="text" id="" cols="10" rows="5" class="form-control">{{ old( 'text' ) }}</textarea></div>
-                                </div>
-                            </div>
-
-                            <br>
-
-                            <div class="clearfix row">
-                                <div class="col-xs-6">
-                                    <label>Название на Араб.</label>
-                                    <div class="input-group ">
-                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <textarea name="text_original" id="" cols="10" rows="5" class="form-control text-right">{{ old( 'text_original' ) }}</textarea>
-                                        </div>
-                                </div>
-                            </div>
-
-                            <br>
-
-                            <div class="clearfix row">
-                                <div class="col-xs-6">
-                                    <label>Номер Аята</label>
-                                    <div class="input-group ">
-                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input name="number" type="text" class="form-control" placeholder="" value="{{ old( 'number' ) }}"></div>
-                                </div>
-                            </div>
-
-                            <br>
 
                             <label>Сура</label>
                             <div class="input-group ">
                                 <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
 
 
-                                {{Form::select('sura_id',
+                                {{ Form::select('sura_id',
                                     $suras,
-                                    null,
-                                    ['class' => 'form-control select2', 'style' => 'width: 100%'])
+                                    $ayat->getSuraID(),
+                                    ['class' => 'form-control select2', 'style' => 'width: 100%;'])
                                   }}
 
-
                             </div>
+
+                            <br>
+
+                            <div class="clearfix row">
+                                <div class="col-xs-12">
+                                    <label>Название</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <textarea name="text" id="" cols="10" rows="5" class="form-control">{{ $ayat->text }}</textarea></div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="clearfix row">
+                                <div class="col-xs-12">
+                                    <label>Название на Араб.</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <textarea name="text_original" id="" cols="10" rows="5" class="form-control text-right">{{ $ayat->text_original }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
 
                         </div>
                     </div>

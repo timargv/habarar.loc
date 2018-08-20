@@ -19,5 +19,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
       Route::get('/', 'DashboardController@index');
 
       Route::resource('kuran', 'SurasController');
+      Route::get('kuran/{$slug}', 'SurasController@sura')->name('sura.show');
       Route::resource('ayats', 'AyatsController');
 });

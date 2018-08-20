@@ -43,7 +43,7 @@
                                     <label>Название на Араб.</label>
                                     <div class="input-group ">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input name="name_original" type="text" class="form-control" placeholder="" value="{{ $sura->name_original }}"></div>
+                                        <input name="name_original" type="text" class="form-control text-right" placeholder="" value="{{ $sura->name_original }}"></div>
                                 </div>
                             </div>
 
