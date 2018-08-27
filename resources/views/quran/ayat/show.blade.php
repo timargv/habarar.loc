@@ -9,15 +9,15 @@
         </section>
 
         <div class="text_original">
-            {{ $suras->$ayat->text }}
+            {{$ayat->text }}
         </div>
 
         <div class="text">
-            {{ $suras->$ayat->text }}
+            {{$ayat->text }}
         </div>
 
         <div class="text_transcription_ru">
-            {{ $suras->$ayat->text }}
+            {{$ayat->text }}
         </div>
 
 

@@ -6,24 +6,26 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                {{ $title }} -  {{ $sura->number }}. {{ $sura->name }}
+                {{ $title }}
 
             </h1>
         </section>
 
         <div class="text_original">
-            {{ $ayats->text }}
+{{--            {{ $ayats->text }}--}}
         </div>
 
         <div class="text">
-            {{ $ayats->text }}
+{{--            {{ $ayats->text }}--}}
         </div>
 
         <div class="text_transcription_ru">
-            {{ $ayats->text }}
+{{--            {{ $ayats->text }}--}}
         </div>
 
-
+        @foreach($ayats as $ayat)
+            {{ $ayat->number }}
+        @endforeach
 
 @endsection
 

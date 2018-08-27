@@ -22,15 +22,10 @@ class HomeController extends Controller
     public function sura($id)
     {
         $suras = Sura::all();
-        $list_ayats = Ayat::all();
-
 
         $sura = Sura::where('id', $id)->firstOrFail();
-
-
-        $ayats = $sura->ayats()->paginate(15);
-
-        return view('quran.show', ['list_ayats' => $list_ayats, 'sura' => $sura,   'ayats' => $ayats,  'title' => 'Сура', 'suras' => $suras]);
+        $ayats = $sura->ayats();
+        return view('quran.show', ['sura' => $sura, 'ayats' => $ayats,  'title' => 'Сура', 'suras' => $suras]);
     }
 
     public function show($id) {
