@@ -48,6 +48,19 @@
                                 </div>
                             </div>
 
+
+                            <br>
+
+                            <div class="clearfix row">
+                                <div class="col-xs-6">
+                                    <label>Название Транскрипция RU</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <textarea name="text_transcription_ru" id="" cols="10" rows="5" class="form-control ">{{ old( 'text_transcription_ru' ) }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
                             <br>
 
                             <div class="clearfix row">

@@ -39,9 +39,10 @@ class SurasController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'          => 'required',
-            'name_original' => 'required',
-            'number'        => 'required|numeric'
+            'name'                  => 'required',
+            'name_original'         => 'required',
+            'name_transcription_ru' => 'required',
+            'number'                => 'required|numeric'
         ]);
         Sura::create($request->all());
         return redirect()->route('kuran.index');
@@ -83,6 +84,14 @@ class SurasController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request, [
+            'name'                  => 'required',
+            'name_original'         => 'required',
+            'name_transcription_ru' => 'required',
+            'number'                => 'required|numeric'
+        ]);
+
         $sura = Sura::find($id);
         $sura->update($request->all());
 

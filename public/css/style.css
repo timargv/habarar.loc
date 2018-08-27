@@ -1,0 +1,121 @@
+
+
+body {
+	background: url('../img/sky2.jpg') no-repeat !important;
+	background-position: top;
+	background-size: cover;
+}
+
+html, body {
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+.header {
+	width: 100%;
+}
+.header ul {list-style: none;margin: 0 0 0 20px;padding: 0;}
+.header ul li {
+    cursor: pointer;
+}
+.header ul li i:hover {
+	opacity: .6	
+} 
+.header .list-suras li i {
+	font-size: 12px;	
+}
+.header .list-suras li a {
+	color: #fff;
+}
+
+.header .list-suras a {
+    padding: 5px 15px;
+    background: transparent;
+    color: #77a4b3;
+}
+
+.header .list-suras .dropdown-menu {
+	font-size: 14px;
+	min-width: 30px;
+	border-radius: 3px;
+	border: 0;
+}
+
+.header .list-suras div a.active, 
+.header .list-ayats div a.active,
+.header .list-suras div a:hover, 
+.header .list-ayats div a:hover {
+    background: #79b4d6 !important;
+    color: #ffffff !important;
+}
+
+.header .list-ayats li i {
+	font-size: 12px;	
+}
+.header .list-ayats li a {
+	color: #fff;
+}
+
+
+
+.header .list-ayats .dropdown-menu .dropdown-item {
+	width: auto;
+	padding: 3px 15px;
+	margin: 0;
+	background: #fff;
+	color: #77a4b3;
+}
+
+.header .list-ayats .dropdown-menu {
+	font-size: 12px;
+	min-width: 30px;
+	text-align: center;
+	border-radius: 3px;
+	border: 0;
+}
+
+.header ul li i { 
+	color: #fff;
+	cursor: pointer;
+	opacity: .7
+}
+.header ul li a {}
+
+
+.full-height {
+    height: 100vh;
+}
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.position-ref {
+    position: relative;
+    background: #7fa1b3a8;
+}
+.top-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%
+}
+.content {
+    text-align: center;
+    max-width: 1000px;
+}
+
+.text {}
+.text_transcription_ru {}
+.text_original {}
+
+.text,
+.text_transcription_ru,
+.text_original {
+	color: #fff;
+	font-size: 20px;
+	padding: 20px 0 25px;
+}

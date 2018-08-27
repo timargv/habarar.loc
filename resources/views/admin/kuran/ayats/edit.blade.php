@@ -56,6 +56,17 @@
 
                             <div class="clearfix row">
                                 <div class="col-xs-12">
+                                    <label>Название Транскрипция RU</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <textarea name="text_transcription_ru" id="" cols="10" rows="5" class="form-control">{{ $ayat->text_transcription_ru }}</textarea></div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="clearfix row">
+                                <div class="col-xs-12">
                                     <label>Название на Араб.</label>
                                     <div class="input-group ">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -65,6 +76,17 @@
                             </div>
 
                             <br>
+
+                            <div class="clearfix row">
+                                <div class="col-xs-6">
+                                    <label>Номер Аята</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input name="number" type="text" class="form-control" placeholder="" value="{{ $ayat->number }}"></div>
+                                </div>
+                            </div>
+
+
 
                         </div>
                     </div>

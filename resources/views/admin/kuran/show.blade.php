@@ -6,7 +6,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                {{ $title }} - {{ $sura->name }}
+                {{ $title }} -  {{ $sura->number }}. {{ $sura->name }}
                 <small>приятные слова..</small>
             </h1>
         </section>
@@ -27,45 +27,49 @@
                 </div>
                 @if(count($ayats))
 
+
                 <div class=" box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
 
-                    <table class="table table-hover">
-                        <thead>
-
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th style="width: 65px;padding-left: 15px;">ID</th>
-                            <th width="45%">Название</th>
-                            <th width="45%">Название на Араб.</th>
-                            {{--<th>Номер Суры</th>--}}
-
-                            <th></th>
-                        </tr>
-                        @foreach($ayats as $ayat)
+                            </thead>
+                            <tbody>
                             <tr>
-                                <td style="padding-left: 15px;">{{ $ayat->id }}</td>
-                                <td>{{ $ayat->text }}</td>
-                                <td class="text-right">{{ $ayat->text_original }}</td>
-{{--                                <td>{{ $ayat->getSuraName() }}</td>--}}
-                                <td width="80px">
-                                    <div class="form-inline">
-                                        <a class="form-inline" style="position: relative;top: 4px; " href="{{ route('ayats.edit', $ayat->id) }}"><i class="fa fa-pencil-square-o"></i></a>
+                                <th style="width: 30px;padding-left: 15px;">Аят</th>
+                                <th width="30%">Название</th>
+                                <th width="30%">Название Транскрипция RU</th>
+                                <th width="30%" class="text-right">Название на Араб.</th>
+                                {{--<th style="width:  150px">Сура</th>--}}
 
-                                        {{ Form::open(['route' => ['ayats.destroy', $ayat->id], 'method' => 'delete', 'class' => 'form-group']) }}
-                                        <button onclick="return confirm('Удалить?')" class="btn btn-link btn-xs"><i class="fa fa-trash-o"></i></button>
-                                        {{ Form::close() }}
-                                    </div>
-                                </td>
-
+                                <th width="50px">Ред/Удал</th>
                             </tr>
-                        @endforeach
+                            @foreach($ayats as $ayat)
 
+                                <tr>
+                                    <td style="padding-left: 15px;">{{ $ayat->number }}</td>
+                                    <td>{{ $ayat->text }}</td>
+                                    <td>{{ $ayat->text_transcription_ru }}</td>
 
-                        </tbody>
-                    </table>
+                                    <td class="text-right">{{ $ayat->text_original }}</td>
+                                    {{--                                <td>{{ $ayat->getSuraName() }}</td>--}}
 
-                </div>
+                                    <td width="60px">
+                                        <div class="form-inline">
+                                            <a class="form-inline" style="position: relative;top: 4px; " href="{{ route('ayats.edit', $ayat->id) }}"><i class="fa fa-pencil-square-o"></i></a>
+
+                                            {{ Form::open(['route' => ['ayats.destroy', $ayat->id], 'method' => 'delete', 'class' => 'form-group']) }}
+                                            <button onclick="return confirm('Удалить?')" class="btn btn-link btn-xs" style="padding: 0; border: 0; outline: none !important; box-shadow: none !important;"><i class="fa fa-trash-o"></i></button>
+                                            {{ Form::close() }}
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                            @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
                 <div class="box-footer clearfix">
                     {{$ayats->links()}}
                 </div>

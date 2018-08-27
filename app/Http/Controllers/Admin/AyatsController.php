@@ -17,7 +17,7 @@ class AyatsController extends Controller
      */
     public function index()
     {
-        $ayats = Ayat::paginate(7);
+        $ayats = Ayat::paginate(21);
         $title = 'Аяты';
         return view('admin.kuran.ayats.index', compact('ayats', 'title'));
     }
@@ -43,10 +43,11 @@ class AyatsController extends Controller
     {
         //
         $this->validate($request, [
-            'text'          => 'required',
-            'text_original' => 'required',
-            'number'        => 'required|numeric',
-            'sura_id'       => 'required',
+            'text'                  => 'required',
+            'text_original'         => 'required',
+            'text_transcription_ru' => 'required',
+            'number'                => 'required|numeric',
+            'sura_id'               => 'required',
         ]);
 
 
@@ -89,10 +90,11 @@ class AyatsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'text'          => 'required',
-            'text_original' => 'required',
-            'number'        => 'required|numeric',
-            'sura_id'       => 'required',
+            'text'                  => 'required',
+            'text_original'         => 'required',
+            'text_transcription_ru' => 'required',
+            'number'                => 'required|numeric',
+            'sura_id'               => 'required',
         ]);
 
 

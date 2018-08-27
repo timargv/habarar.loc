@@ -32,8 +32,9 @@
                         <tr>
                             <th style="width: 50px;padding-left: 15px;">ID</th>
                             <th style="width: 150px;">Сура №</th>
-                            <th style="width: 40%">Название</th>
-                            <th style="width: 40%">Название на Араб.</th>
+                            <th style="width: 25%">Название</th>
+                            <th style="width: 25%">Название Транскрипция RU</th>
+                            <th style="width: 25%" class="text-right">Название на Араб.</th>
 
                             <th></th>
                         </tr>
@@ -43,7 +44,9 @@
                                 <td>{{ $sura->number }}</td>
 
                                 <td><a href="{{ route('kuran.show', $sura->slug)}}"> {{ $sura->name }} </a> </td>
+                                <td class="">{{ $sura->name_transcription_ru }}</td>
                                 <td class="text-right">{{ $sura->name_original }}</td>
+
 
                                 <td width="150px">
                                     <div class="form-inline">
