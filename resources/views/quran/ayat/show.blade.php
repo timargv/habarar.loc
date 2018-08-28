@@ -19,12 +19,15 @@
         <div class="text_transcription_ru">
             {{$ayat->text }}
         </div>
-
+    </div>    
 
 @endsection
-        @section('ayatmen')
-                @foreach($ayats as $ayat)
-                    <a class="dropdown-item {{{ (Request::is('/quran/ayat/{id}') ? 'treeview active' : 'treeview') }}}"
-                       href="{{ route('quran.ayat.show', $ayat->id)}}">  {{ $ayat->number }} </a>
-        @endforeach
-    @endsection
+
+@section('ayatmen')
+    @foreach($ayats as $ayat)
+        <a class="dropdown-item {{{ (Request::is('/quran/ayat/{id}') ? 'treeview active' : 'treeview') }}}"
+           href="{{ route('quran.ayat.show', $ayat->id)}}">  {{ $ayat->number }} </a>
+    @endforeach
+@endsection
+
+
