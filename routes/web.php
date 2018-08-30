@@ -12,8 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/quran/{id}', 'HomeController@sura')->name('quran.show');
-Route::get('/quran/ayat/{id}', 'HomeController@show')->name('quran.ayat.show');
+Route::get('/quran', 'HomeController@index')->name('quran.index');
+Route::get('/quran/{slug}', 'HomeController@show')->name('quran.show');
+Route::get('/quran/ayat/{slug}', 'HomeController@ayat')->name('quran.ayat.show');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){

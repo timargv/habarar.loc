@@ -20,7 +20,7 @@ class CreateAyatsTable extends Migration
             $table->text('text_transcription_ru');
             $table->float('number');
             $table->integer('sura_id');
-
+            $table->string('slug');
             $table->timestamps();
         });
     }

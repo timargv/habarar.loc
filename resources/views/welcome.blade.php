@@ -37,8 +37,7 @@
                     </ul>
                     <ul class="float-left ml-4 list-suras">
                         <li data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                            <a href="#">Аят - первый</a>
-                            <i class="fa fa-angle-down"></i>
+                            @include('quran._sidebar')
                         </li>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
                             @include('_sidebar')
@@ -46,8 +45,8 @@
                     </ul>
                     <ul class="float-left ml-4 list-ayats">
                         <li data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                            <a href="#">12</a>
-                            <i class="fa fa-angle-down"></i>
+                            @include('quran.ayat._sidebar')
+
                         </li>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
                             @yield('ayatmen')

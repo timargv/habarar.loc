@@ -1,9 +1,10 @@
 
 
 body {
-	background: url('../img/sky2.jpg') no-repeat !important;
-	background-position: top;
-	background-size: cover;
+    background-image: url(../img/sky2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 html, body {

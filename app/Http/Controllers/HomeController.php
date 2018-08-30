@@ -9,33 +9,32 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
-
-
     public function index()
     {
-        $ayats = Ayat::where('sura_id', '=', 1)->get();
         $suras = Sura::all();
-        $list_ayats = Ayat::all();
-        return view('quran.index', compact('suras', 'ayats', 'list_ayats'));
+        return view('quran.index', compact('suras'));
     }
 
-    public function sura($id)
-    {
+    public function show($slug) {
         $suras = Sura::all();
-
-        $sura = Sura::where('id', $id)->firstOrFail();
-        $ayats = $sura->ayats();
-        return view('quran.show', ['sura' => $sura, 'ayats' => $ayats,  'title' => 'Сура', 'suras' => $suras]);
+        $sura = Sura::where('slug', $slug)->firstOrFail();
+        return view('quran.show', compact('sura', 'suras'));
     }
 
-    public function show($id) {
+    /**
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function ayat($slug) {
         $suras = Sura::all();
-        $ayat = Ayat::where('id', $id)->firstOrFail();
-        $sura = Sura::where('id', $id)->firstOrFail();
-        $ayats = $sura->ayats()->paginate(15);
+        $ayat = Ayat::where('slug', $slug)->firstOrFail();
+        $sura = Sura::find($ayat->sura_id);
 
-        return view('quran.ayat.show', ['sura' => $sura, 'suras' => $suras, 'ayats' => $ayats, 'ayat' => $ayat, 'title' => 'Аят' ]);
+        return view('quran.ayat.show', compact('suras','ayat', 'sura'));
+
     }
+
+
 }
 
 

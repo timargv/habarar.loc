@@ -2,22 +2,24 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 
 class Ayat extends Model
 {
+    use Sluggable;
     protected $fillable = ['text', 'text_original', 'text_transcription_ru', 'number', 'sura_id'];
 
     // ------------------
-//    public function sluggable(): array
-//    {
-//        return [
-//            'slug' => [
-//                'source' => 'number'
-//            ]
-//        ];
-//    }
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'number'
+            ]
+        ];
+    }
 
     // -------------------
     public function sura() {

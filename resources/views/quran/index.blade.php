@@ -2,7 +2,7 @@
 
 
 @section('content')
-    @foreach($ayats as $ayat)
-        <li>{{ $ayat->number }}. {{ $ayat->text }}</li>
+    @foreach($suras as $sura)
+        <li>{{ $sura->number }}. {{ $sura->name }}</li>
     @endforeach
 @endsection
