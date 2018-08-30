@@ -17,6 +17,7 @@ class CreateSurasTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('name_original');
+            $table->string('name_transcription_ru');
             $table->string('number');
             $table->string('slug');
             $table->timestamps();

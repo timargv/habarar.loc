@@ -6,7 +6,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Список Поставщиков
+                {{ $title }}
                 <small>приятные слова..</small>
             </h1>
         </section>
@@ -31,29 +31,35 @@
                         <tbody>
                         <tr>
                             <th style="width: 50px;padding-left: 15px;">ID</th>
-                            <th>Название</th>
-                            <th>Название на Араб.</th>
-                            <th>Номер Суры</th>
+                            <th style="width: 150px;">Сура №</th>
+                            <th style="width: 25%">Название</th>
+                            <th style="width: 25%">Название Транскрипция RU</th>
+                            <th style="width: 25%" class="text-right">Название на Араб.</th>
 
                             <th></th>
                         </tr>
                         @foreach($suras as $sura)
                             <tr>
                                 <td style="padding-left: 15px;">{{ $sura->id }}</td>
-                                <td>{{ $sura->name }}</td>
-                                <td>{{ $sura->name_original }}</td>
                                 <td>{{ $sura->number }}</td>
+
+                                <td><a href="{{ route('kuran.show', $sura->slug)}}"> {{ $sura->name }} </a> </td>
+                                <td class="">{{ $sura->name_transcription_ru }}</td>
+                                <td class="text-right">{{ $sura->name_original }}</td>
+
 
                                 <td width="150px">
                                     <div class="form-inline">
                                         <a class="form-inline" href="{{ route('kuran.edit', $sura->id) }}">ред.</a>
 
                                         {{ Form::open(['route' => ['kuran.destroy', $sura->id], 'method' => 'delete', 'class' => 'form-group']) }}
-                                        <button onclick="return confirm('Удалить?')" class="btn btn-link">удалить</button>
+                                        <button onclick="return confirm('Удалить?')" class="btn btn-link btn-xs">удалить</button>
                                         {{ Form::close() }}
                                     </div>
                                 </td>
                             </tr>
+
+
                         @endforeach
 
                         </tbody>

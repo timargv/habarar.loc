@@ -48,3 +48,9 @@ mix.copy('resources/assets/admin/bootstrap/fonts', 'public/fonts');
 mix.copy('resources/assets/admin/dist/fonts', 'public/fonts');
 mix.copy('resources/assets/admin/dist/img', 'public/img');
 mix.copy('resources/assets/admin/plugins/iCheck/minimal/blue.png', 'public/css');
+mix.copy('resources/assets/image/sky2.jpg', 'public/img');
+
+
+mix.styles([
+    'resources/assets/css/style.css',
+], 'public/css/style.css');

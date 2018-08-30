@@ -15,8 +15,9 @@ class SurasController extends Controller
      */
     public function index()
     {
-        $suras = Sura::paginate(15);
-        return view('admin.kuran.index', compact('suras'));
+        $suras = Sura::paginate(114);
+        $title = 'Суры';
+        return view('admin.kuran.index', compact('suras', 'title'));
     }
 
     /**
@@ -37,6 +38,12 @@ class SurasController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name'                  => 'required',
+            'name_original'         => 'required',
+            'name_transcription_ru' => 'required',
+            'number'                => 'required|numeric'
+        ]);
         Sura::create($request->all());
         return redirect()->route('kuran.index');
     }
@@ -47,9 +54,12 @@ class SurasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         //
+        $sura = Sura::where('slug', $slug)->firstOrFail();
+        $ayats = $sura->ayats()->paginate(15);
+        return view('admin.kuran.show', ['sura' => $sura, 'ayats'  =>  $ayats, 'title' => 'Сура']);
     }
 
     /**
@@ -61,6 +71,7 @@ class SurasController extends Controller
     public function edit($id)
     {
         $sura = Sura::find($id);
+
         return view('admin.kuran.edit', compact('sura'));
     }
 
@@ -73,10 +84,18 @@ class SurasController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request, [
+            'name'                  => 'required',
+            'name_original'         => 'required',
+            'name_transcription_ru' => 'required',
+            'number'                => 'required|numeric'
+        ]);
+
         $sura = Sura::find($id);
         $sura->update($request->all());
 
-        return redirect()->back();
+        return redirect()->route('kuran.index');
     }
 
     /**

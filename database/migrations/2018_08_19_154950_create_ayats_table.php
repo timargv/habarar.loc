@@ -17,8 +17,10 @@ class CreateAyatsTable extends Migration
             $table->increments('id');
             $table->text('text');
             $table->text('text_original');
+            $table->text('text_transcription_ru');
             $table->float('number');
             $table->integer('sura_id');
+
             $table->timestamps();
         });
     }

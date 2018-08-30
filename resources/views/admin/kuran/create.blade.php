@@ -43,7 +43,18 @@
                                     <label>Название на Араб.</label>
                                     <div class="input-group ">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input name="name_original" type="text" class="form-control" placeholder="" value="{{ old( 'name_original' ) }}"></div>
+                                        <input name="name_original" type="text" class="form-control text-right" placeholder="" value="{{ old( 'name_original' ) }}"></div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="clearfix row">
+                                <div class="col-xs-6">
+                                    <label>Название Транскрипция RU.</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input name="name_transcription_ru" type="text" class="form-control " placeholder="" value="{{ old( 'name_transcription_ru' ) }}"></div>
                                 </div>
                             </div>
 

@@ -9,7 +9,7 @@ class Sura extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['name', 'name_original', 'number', 'slug'];
+    protected $fillable = ['name', 'name_original', 'name_transcription_ru', 'number', 'slug'];
 
 
 

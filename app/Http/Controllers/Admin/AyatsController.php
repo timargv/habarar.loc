@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Ayat;
 use App\Sura;
+use App\Ayat;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,8 +17,9 @@ class AyatsController extends Controller
      */
     public function index()
     {
-        $ayats = Ayat::paginate(15);
-        return view('admin.kuran.ayats.index', compact('ayats'));
+        $ayats = Ayat::paginate(21);
+        $title = 'Аяты';
+        return view('admin.kuran.ayats.index', compact('ayats', 'title'));
     }
 
     /**
@@ -40,6 +42,18 @@ class AyatsController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'text'                  => 'required',
+            'text_original'         => 'required',
+            'text_transcription_ru' => 'required',
+            'number'                => 'required|numeric',
+            'sura_id'               => 'required',
+        ]);
+
+
+        $ayat = Ayat::add($request->all());
+        $ayat->setSura($request->get('sura_id'));
+        return redirect()->route('ayats.index');
     }
 
     /**
@@ -50,7 +64,7 @@ class AyatsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -61,7 +75,9 @@ class AyatsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ayat = Ayat::find($id);
+        $suras = Sura::pluck('name', 'id')->all();
+        return view('admin.kuran.ayats.edit', compact('ayat', 'suras'));
     }
 
     /**
@@ -73,7 +89,22 @@ class AyatsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'text'                  => 'required',
+            'text_original'         => 'required',
+            'text_transcription_ru' => 'required',
+            'number'                => 'required|numeric',
+            'sura_id'               => 'required',
+        ]);
+
+
+        $ayat = Ayat::find($id);
+        $ayat->edit($request->all());
+        $ayat->setSura($request->get('sura_id'));
+
+
+        return redirect()->route('ayats.index');
+
     }
 
     /**
@@ -84,6 +115,8 @@ class AyatsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        Ayat::find($id)->delete();
+        return redirect()->back();
     }
 }
