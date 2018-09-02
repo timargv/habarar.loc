@@ -6,14 +6,17 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-{{--                {{ $title }}--}}
-
+                {{ $sura->title }}
             </h1>
         </section>
 
-        <div class="text_original">
-        </div>
-
+        @foreach($sura->ayats as $key => $ayat)
+            @if ($key == 0)
+                <div class="text_original">
+                    {{ $sura->number }}:{{ $ayat->number }}. {{ $ayat->text }}
+                </div>
+            @endif
+        @endforeach
         <div class="text">
         </div>
 
@@ -21,11 +24,19 @@
         </div>
 
 @endsection
+        @section('suraName')
+            {{ $sura->name_transcription_ru }} <i class="fa fa-angle-down "></i>
+        @stop
+        @section('ayatNumber')
+            @if (count($ayats) > 0)
+                Аят <i class="fa fa-angle-down "></i>
+            @endif
+        @stop
+@section('ayats')
 
-
-@section('ayatmen')
-            @foreach($sura->ayats as $ayat)
-                <a class="dropdown-item treeview @if($ayat->slug == request()->route('slug') ) active @endif"
-                   href="{{ route('quran.ayat.show', $ayat->slug)}}">  {{ $ayat->number }} </a>
-            @endforeach
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+    @foreach($ayats as $ayat)
+            <a class="dropdown-item treeview" href="{{ route('quran.ayat.show', $ayat->slug) }}"> {{ $ayat->number }} </a>
+    @endforeach
+    </div>
 @endsection

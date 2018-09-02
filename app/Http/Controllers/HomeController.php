@@ -15,25 +15,29 @@ class HomeController extends Controller
         return view('quran.index', compact('suras'));
     }
 
-    public function show($slug) {
-        $suras = Sura::all();
+    public function quranShow($slug) {
         $sura = Sura::where('slug', $slug)->firstOrFail();
-        return view('quran.show', compact('sura', 'suras'));
+        $ayats = $sura->ayats()->get();
+//        $ayats = Ayat::all();
+
+
+        return view('quran.show', compact('ayats', 'sura'));
     }
 
     /**
      * @param $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function ayat($slug) {
-        $suras = Sura::all();
+    public function ayatShow($slug) {
         $ayat = Ayat::where('slug', $slug)->firstOrFail();
-        $sura = Sura::find($ayat->sura_id);
+        $sura = Sura::where('id', $ayat->sura_id)->firstOrFail();
+        $ayats = $sura->ayats()->get();
 
-        return view('quran.ayat.show', compact('suras','ayat', 'sura'));
-
+//        if($ayat->sura_id == $sura->id) {
+//            $activeSura = 'active';
+//        }
+        return view('quran.ayat.show', compact( 'ayat','ayats', 'sura'));
     }
-
 
 }
 

@@ -35,23 +35,7 @@
                             <a class="dropdown-item" href="#">Separated link</a>
                         </div>
                     </ul>
-                    <ul class="float-left ml-4 list-suras">
-                        <li data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                            @include('quran._sidebar')
-                        </li>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                            @include('_sidebar')
-                        </div>
-                    </ul>
-                    <ul class="float-left ml-4 list-ayats">
-                        <li data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                            @include('quran.ayat._sidebar')
-
-                        </li>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                            @yield('ayatmen')
-                        </div>
-                    </ul>
+                    @include('_sidebar')
 
                 </div>
                 <div class="float-right"></div>

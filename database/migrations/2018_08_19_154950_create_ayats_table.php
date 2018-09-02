@@ -16,7 +16,7 @@ class CreateAyatsTable extends Migration
         Schema::create('ayats', function (Blueprint $table) {
             $table->increments('id');
             $table->text('text');
-            $table->text('text_original');
+            $table->text('text_original')->nullable();
             $table->text('text_transcription_ru');
             $table->float('number');
             $table->integer('sura_id');

@@ -2,9 +2,12 @@
   <dictionary name="T_V">
     <words>
       <w>ayat</w>
+      <w>ayats</w>
+      <w>dropdown</w>
       <w>quran</w>
       <w>sura</w>
       <w>suras</w>
+      <w>treeview</w>
     </words>
   </dictionary>
 </component>

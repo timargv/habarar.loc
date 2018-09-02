@@ -12,10 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        $this->call(::class);
+        $this->call(SuraTableSeeder::class);
 
-        factory(\App\Sura::class, 114)->create();
-        factory(\App\Ayat::class, 114)->create();
+//        factory(\App\Sura::class, 114)->create();
+//        factory(\App\Ayat::class, 114)->create();
 
     }
 }
